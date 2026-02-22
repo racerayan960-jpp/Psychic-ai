@@ -1,0 +1,485 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #1E4A5F, #0F2A36);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.app {
+    max-width: 450px;
+    width: 100%;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    min-height: 700px;
+}
+
+/* Screens */
+.screen {
+    display: none;
+    padding: 24px;
+    min-height: 700px;
+    animation: fade 0.3s;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Splash Screen */
+#splash {
+    background: #1E4A5F;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.splash-logo {
+    font-size: 100px;
+    animation: pulse 2s infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.arabic {
+    font-size: 20px;
+    margin: 20px 0;
+    opacity: 0.9;
+}
+
+.loading {
+    margin-top: 30px;
+    opacity: 0.7;
+}
+
+/* Header */
+.header, .session-header, .report-header, .settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 40px;
+}
+
+.icon-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: #f0f0f0;
+    border-radius: 22px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icon-btn:active {
+    transform: scale(0.95);
+}
+
+h2 {
+    color: #1E4A5F;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Features */
+.features {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.feature {
+    flex: 1;
+    background: #f5f5f5;
+    padding: 15px 5px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.feature span {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Phone Input */
+.phone-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.phone-input:focus {
+    outline: none;
+    border-color: #1E4A5F;
+}
+
+.note {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 8px 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.primary {
+    background: #1E4A5F;
+    color: white;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.danger {
+    background: #dc3545;
+    color: white;
+}
+
+/* History */
+.history {
+    margin-top: 30px;
+}
+
+.history h3 {
+    color: #1E4A5F;
+    margin-bottom: 15px;
+}
+
+.history-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.history-date {
+    font-weight: bold;
+    color: #1E4A5F;
+    margin-bottom: 4px;
+}
+
+/* Session Screen */
+.timer {
+    background: #1E4A5F;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.chat {
+    height: 450px;
+    overflow-y: auto;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    display: flex;
+    gap: 10px;
+    max-width: 80%;
+}
+
+.message.ai {
+    align-self: flex-start;
+}
+
+.message.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    background: #1E4A5F;
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.bubble {
+    background: white;
+    padding: 12px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.message.user .bubble {
+    background: #1E4A5F;
+    color: white;
+}
+
+.time {
+    font-size: 10px;
+    color: #999;
+    display: block;
+    margin-top: 5px;
+}
+
+.message.user .time {
+    color: rgba(255,255,255,0.7);
+}
+
+/* Input Area */
+.input-area {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 30px;
+}
+
+textarea {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    font-family: inherit;
+    resize: none;
+    max-height: 80px;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.send-btn {
+    width: 50px;
+    height: 50px;
+    background: #1E4A5F;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Analysis Screen */
+#analysis {
+    background: #1E4A5F;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.analysis-content {
+    text-align: center;
+}
+
+.spinner {
+    font-size: 60px;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Report Screen */
+.report-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.report-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.report-section:last-child {
+    border-bottom: none;
+}
+
+.report-section h3 {
+    color: #1E4A5F;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.arabic-verse {
+    font-size: 22px;
+    direction: rtl;
+    text-align: center;
+    margin: 15px 0;
+    color: #1E4A5F;
+    font-family: 'Traditional Arabic', serif;
+}
+
+.verse-ref {
+    text-align: center;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.hadith-text {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.prescription-item {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    border-left: 4px solid #1E4A5F;
+}
+
+/* Settings */
+.settings-content {
+    margin-top: 20px;
+}
+
+.setting-item {
+    margin-bottom: 25px;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-weight: 500;
+}
+
+.setting-item select,
+.setting-item input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+.setting-item select:focus,
+.setting-item input:focus {
+    outline: none;
+    border-color: #1E4A5F;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    border-radius: 26px;
+    transition: 0.3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+    background: #1E4A5F;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.storage-info {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin-top: 20px;
+}
