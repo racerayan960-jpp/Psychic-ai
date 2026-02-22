@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic AI Therapist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- SPLASH SCREEN -->
+        <div id="splash" class="screen active">
+            <div class="splash-content">
+                <div class="splash-logo">🕌</div>
+                <h1>Islamic AI Therapist</h1>
+                <p class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                <p class="loading">Loading...</p>
+            </div>
+        </div>
+
+        <!-- HOME SCREEN -->
+        <div id="home" class="screen">
+            <div class="header">
+                <div class="logo">🕌</div>
+                <button class="icon-btn" onclick="showScreen('settings')">⚙️</button>
+            </div>
+            
+            <h2>Peace through faith</h2>
+            <p class="subtitle">30-minute therapy with Islamic guidance</p>
+
+            <div class="features">
+                <div class="feature"><span>📖</span> Quranic</div>
+                <div class="feature"><span>🕌</span> Sunnah</div>
+                <div class="feature"><span>🔒</span> Private</div>
+            </div>
+
+            <input type="tel" id="phoneInput" class="phone-input" placeholder="WhatsApp (optional)">
+            <p class="note">Stored only on your device</p>
+            
+            <button class="btn primary" onclick="startSession()">Begin Session (30 min)</button>
+
+            <div class="history">
+                <h3>Previous Sessions</h3>
+                <div id="historyList" class="history-list"></div>
+            </div>
+        </div>
+
+        <!-- SESSION SCREEN -->
+        <div id="session" class="screen">
+            <div class="session-header">
+                <div class="timer" id="timer">30:00</div>
+                <button class="icon-btn" onclick="endSessionEarly()">✕</button>
+            </div>
+
+            <div class="chat" id="chat"></div>
+
+            <div class="input-area">
+                <textarea id="userInput" placeholder="Type message..." rows="1"></textarea>
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+
+        <!-- ANALYSIS SCREEN -->
+        <div id="analysis" class="screen">
+            <div class="analysis-content">
+                <div class="spinner">🕌</div>
+                <h3>Analyzing session</h3>
+                <p>Finding Quranic verses and hadith...</p>
+            </div>
+        </div>
+
+        <!-- REPORT SCREEN -->
+        <div id="report" class="screen">
+            <div class="report-header">
+                <h2>Session Report</h2>
+                <button class="icon-btn" onclick="showScreen('home')">🏠</button>
+            </div>
+            <div id="reportContent" class="report-card"></div>
+            <button class="btn whatsapp" onclick="shareReport()">Share on WhatsApp</button>
+            <button class="btn primary" onclick="startSession()">New Session</button>
+        </div>
+
+        <!-- SETTINGS SCREEN -->
+        <div id="settings" class="screen">
+            <div class="settings-header">
+                <h2>Settings</h2>
+                <button class="icon-btn" onclick="showScreen('home')">←</button>
+            </div>
+            
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label>Session length</label>
+                    <select id="sessionLength">
+                        <option value="15">15 minutes</option>
+                        <option value="30" selected>30 minutes</option>
+                        <option value="45">45 minutes</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label>Dark mode</label>
+                    <label class="switch">
+                        <input type="checkbox" id="darkMode" onchange="toggleDarkMode()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label>WhatsApp number</label>
+                    <input type="tel" id="settingsPhone" placeholder="+1234567890">
+                </div>
+
+                <button class="btn danger" onclick="clearHistory()">Clear All History</button>
+                <p class="storage-info" id="storageInfo"></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
